@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Groupie-Tracker</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const artists = [
+                { name: "Adele", description: "Chanteuse britannique", image: "https://via.placeholder.com/200x120" },
+                { name: "Beyoncé", description: "Chanteuse américaine", image: "https://via.placeholder.com/200x120" },
+                { name: "Bruno Mars", description: "Chanteur et compositeur", image: "https://via.placeholder.com/200x120" },
+                { name: "Drake", description: "Rappeur canadien", image: "https://via.placeholder.com/200x120" },
+                { name: "Ed Sheeran", description: "Chanteur britannique", image: "https://via.placeholder.com/200x120" },
+                { name: "Lady Gaga", description: "Chanteuse et actrice", image: "https://via.placeholder.com/200x120" },
+                { name: "Rihanna", description: "Chanteuse barbadienne", image: "https://via.placeholder.com/200x120" },
+                { name: "Taylor Swift", description: "Chanteuse et compositrice", image: "https://via.placeholder.com/200x120" },
+                { name: "The Weeknd", description: "Chanteur canadien", image: "https://via.placeholder.com/200x120" },
+                { name: "Zayn Malik", description: "Chanteur britannique", image: "https://via.placeholder.com/200x120" }
+            ];
+
+            const searchInput = document.querySelector(".search-bar input");
+            const cardsContainer = document.querySelector(".cards-container");
+
+            const displayCards = (filteredArtists) => {
+                cardsContainer.innerHTML = "";
+                filteredArtists.forEach(artist => {
+                    const card = document.createElement("div");
+                    card.className = "card";
+                    card.innerHTML = `
+                        <img src="${artist.image}" alt="${artist.name}">
+                        <h3>${artist.name}</h3>
+                        <p>${artist.description}</p>
+                    `;
+                    cardsContainer.appendChild(card);
+                });
+            };
+
+            // Initial display of all artists
+            displayCards(artists);
+
+            searchInput.addEventListener("input", () => {
+                const query = searchInput.value.toLowerCase();
+                const filteredArtists = artists.filter(artist => artist.name.toLowerCase().includes(query));
+                displayCards(filteredArtists);
+            });
+        });
+    </script>
+
+    <h1>Groupie-Tracker</h1>
+
+    <div class="search-bar">
+        <input type="text" placeholder="Rechercher un artiste...">
+    </div>
+
+    <div class="cards-container"></div>
+</body>
+</html>

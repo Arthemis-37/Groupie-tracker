@@ -1,0 +1,94 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fef6e4;
+    color: #2b2d42;
+}
+
+h1 {
+    margin: 20px 0;
+    color: #2b2d42;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.search-bar {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.search-bar input {
+    width: 300px;
+    padding: 12px;
+    border: 1px solid #8d99ae;
+    border-radius: 25px;
+    outline: none;
+    font-size: 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.search-bar input:focus {
+    border-color: #ef233c;
+    box-shadow: 0 0 8px rgba(239, 35, 60, 0.6);
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.card {
+    background-color: #ffffff;
+    width: 220px;
+    border: 1px solid #8d99ae;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+}
+
+.card h3 {
+    margin: 15px 0 5px;
+    color: #2b2d42;
+    font-size: 1.2rem;
+}
+
+.card p {
+    padding: 0 15px 15px;
+    color: #8d99ae;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+    .search-bar input {
+        width: 90%;
+    }
+
+    .card {
+        width: 90%;
+    }
+}
